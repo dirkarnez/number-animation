@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="par"></p>
+  <script>
+  function print(str) {
+	document.getElementById("par").innerText = str;
+}
+
+  function generateRandomString(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+let startTime;
+
+function startTimer() {
+  startTime = performance.now();
+}
+
+
+    function animate(timestamp) {
+     const elapsedTime = performance.now() - startTime;
+      if (elapsedTime >= 2000) {
+        console.log('1 second has elapsed');
+         print("12345")
+        // You can add additional logic here, such as triggering an action
+      } else {
+      	print(generateRandomString(5))
+        // Schedule next frame
+      	requestAnimationFrame(animate);
+      }
+
+      
+    }
+
+startTimer();
+    // Start the animation
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>
