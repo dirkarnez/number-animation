@@ -18,7 +18,7 @@
     return result;
   }
 
-let startTime;
+let startTime = NaN;
 
 function startTimer() {
   startTime = performance.now();
@@ -28,16 +28,14 @@ function startTimer() {
     function animate(timestamp) {
      const elapsedTime = performance.now() - startTime;
       if (elapsedTime >= 2000) {
-        console.log('1 second has elapsed');
-         print("12345")
+	      console.log('2 second has elapsed');
+	      print("12345")
         // You can add additional logic here, such as triggering an action
       } else {
       	print(generateRandomString(5))
         // Schedule next frame
       	requestAnimationFrame(animate);
       }
-
-      
     }
 
 startTimer();
